@@ -1,27 +1,77 @@
 # GestionTareasVelaio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![NgRx](https://img.shields.io/badge/NgRx-BA2BD2?style=for-the-badge&logo=redux&logoColor=white)
+![pnpm](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=f69220)
 
-## Development server
+GestionTareasVelaio - desarrollada con Angular 16, utilizando NgRx para la gestión del estado y TailwindCSS para el diseño.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Características
 
-## Code scaffolding
+- 📝 Crear y gestionar tareas
+- 👥 Asignar personas a las tareas
+- 🔍 Filtrar tareas por estado (completadas, pendientes)
+- 🎨 Interfaz de usuario moderna y responsive
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requisitos previos
 
-## Build
+- Node.js (versión 14 o superior)
+- pnpm (versión 6 o superior)
+- Angular CLI (versión 16.2.16)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalación
 
-## Running unit tests
+1. Clona el repositorio:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
+git clone https://github.com/nicomesa2001/gestion-tareas-velaio.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
+2. Navega al directorio del proyecto:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+
+cd gestion-tareas-velaio
+
+```
+
+3. Instala las dependencias usando pnpm:
+
+```
+
+pnpm install
+
+```
+
+## Uso
+
+Para iniciar el servidor de desarrollo:
+
+```
+
+pnpm start
+
+```
+
+Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
+
+## Estructura del proyecto
+
+- `src/app/components`: Componentes de la aplicación
+- `src/app/models`: Interfaces y modelos de datos
+- `src/app/services`: Servicios para la lógica de negocio
+- `src/app/store`: Acciones, reducers y selectores de NgRx
+- `src/app/validators`: Validadores personalizados
+
+## Comandos disponibles
+
+- `pnpm start`: Inicia el servidor de desarrollo
+- `pnpm build`: Compila la aplicación para producción
+- `pnpm test`: Ejecuta las pruebas unitarias
+- `pnpm lint`: Ejecuta el linter para verificar el código
+
+Desarrollado por Nicolai Enciso
