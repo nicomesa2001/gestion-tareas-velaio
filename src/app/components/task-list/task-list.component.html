@@ -1,0 +1,36 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6">Lista de Tareas</h1>
+
+  <div class="mb-4">
+    <button (click)="setFilter('all')" class="btn mr-2" [class.btn-primary]="filter === 'all'">Todas</button>
+    <button (click)="setFilter('completed')" class="btn mr-2"
+      [class.btn-primary]="filter === 'completed'">Completadas</button>
+    <button (click)="setFilter('pending')" class="btn" [class.btn-primary]="filter === 'pending'">Pendientes</button>
+  </div>
+
+  <ul class="space-y-4">
+    <li *ngFor="let task of tasks$ | async" class="bg-white shadow rounded-lg p-4">
+      <div class="flex items-center justify-between">
+        <span [class.line-through]="task.completed">{{ task.name }}</span>
+        <div>
+          <button (click)="toggleTaskCompletion(task)" class="btn btn-sm mr-2">
+            {{ task.completed ? 'Marcar como Incompleta' : 'Marcar como Completa' }}
+          </button>
+          <button (click)="deleteTask(task.id)" class="btn btn-sm btn-danger">Eliminar</button>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 mt-2">Vence: {{ task.dueDate | date }}</p>
+      <div *ngIf="task.people.length > 0" class="mt-4">
+        <h3 class="font-semibold mb-2">Personas Asignadas:</h3>
+        <ul class="list-disc list-inside">
+          <li *ngFor="let person of task.people">
+            {{ person.name }} (Edad: {{ person.age }})
+            <span *ngIf="person.skills.length > 0">
+              - Habilidades: {{ person.skills.join(', ') }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

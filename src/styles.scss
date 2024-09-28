@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Custom styles
+.btn {
+  @apply px-4 py-2 rounded font-semibold text-sm;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.btn-secondary {
+  @apply bg-gray-500 text-white hover:bg-gray-600;
+}
+
+.btn-danger {
+  @apply bg-red-500 text-white hover:bg-red-600;
+}
+
+.btn-sm {
+  @apply px-2 py-1 text-xs;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  @apply w-full p-2 border rounded;
+}

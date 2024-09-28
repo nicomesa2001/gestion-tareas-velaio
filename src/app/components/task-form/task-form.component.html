@@ -1,0 +1,55 @@
+<div class="container mx-auto px-4 py-8">
+  <h2 class="text-2xl font-bold mb-6">Crear Nueva Tarea</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <div>
+      <label for="name" class="block mb-2">Nombre de la Tarea</label>
+      <input type="text" id="name" formControlName="name" class="w-full p-2 border rounded">
+      <div *ngIf="taskForm.get('name')?.invalid && taskForm.get('name')?.touched" class="text-red-500 mt-1">
+        El nombre de la tarea es requerido y debe tener al menos 5 caracteres.
+      </div>
+    </div>
+
+    <div>
+      <label for="dueDate" class="block mb-2">Fecha de Vencimiento</label>
+      <input type="date" id="dueDate" formControlName="dueDate" class="w-full p-2 border rounded">
+      <div *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched" class="text-red-500 mt-1">
+        La fecha de vencimiento es requerida.
+      </div>
+    </div>
+
+    <div formArrayName="people" class="space-y-4">
+      <h3 class="text-xl font-semibold">Personas Asignadas</h3>
+      <div *ngFor="let person of people?.controls; let i = index" [formGroupName]="i" class="border p-4 rounded">
+        <div class="mb-4">
+          <label [for]="'personName' + i" class="block mb-2">Nombre</label>
+          <input [id]="'personName' + i" type="text" formControlName="name" class="w-full p-2 border rounded">
+          <div *ngIf="person.get('name')?.invalid && person.get('name')?.touched" class="text-red-500 mt-1">
+            El nombre es requerido, debe tener al menos 5 caracteres y debe ser único.
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label [for]="'personAge' + i" class="block mb-2">Edad</label>
+          <input [id]="'personAge' + i" type="number" formControlName="age" class="w-full p-2 border rounded">
+          <div *ngIf="person.get('age')?.invalid && person.get('age')?.touched" class="text-red-500 mt-1">
+            La edad es requerida y debe ser al menos 18.
+          </div>
+        </div>
+
+        <div formArrayName="skills" class="mb-4">
+          <h4 class="text-lg font-semibold mb-2">Habilidades</h4>
+          <div *ngFor="let skill of getSkillControls(i); let j = index" class="flex mb-2">
+            <input [id]="'skill' + i + j" type="text" [formControlName]="j" class="flex-grow p-2 border rounded mr-2">
+            <button type="button" (click)="removeSkill(i, j)" class="btn btn-danger btn-sm">Eliminar Habilidad</button>
+          </div>
+          <button type="button" (click)="addSkill(i)" class="btn btn-secondary btn-sm">Añadir Habilidad</button>
+        </div>
+
+        <button type="button" (click)="removePerson(i)" class="btn btn-danger">Eliminar Persona</button>
+      </div>
+      <button type="button" (click)="addPerson()" class="btn btn-secondary">Añadir Persona</button>
+    </div>
+
+    <button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary">Crear Tarea</button>
+  </form>
+</div>

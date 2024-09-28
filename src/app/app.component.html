@@ -1,1 +1,13 @@
-<h1>Hola mundo</h1>
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a routerLink="/" class="text-white text-xl font-bold">{{ title }}</a>
+    <ul class="flex space-x-4">
+      <li><a routerLink="/tasks" class="text-white hover:text-gray-300">Tareas</a></li>
+      <li><a routerLink="/new-task" class="text-white hover:text-gray-300">Nueva Tarea</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container mx-auto mt-8">
+  <router-outlet></router-outlet>
+</main>
