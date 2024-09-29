@@ -27,6 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     TaskFormComponent, // Componente standalone
     AppRoutingModule,
     RouterModule.forRoot([])
+  ]
   providers: [],
   bootstrap: [AppComponent],
 })
