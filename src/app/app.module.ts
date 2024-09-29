@@ -26,8 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     EffectsModule.forRoot([TaskEffects]),
     TaskFormComponent, // Componente standalone
     AppRoutingModule,
-    RouterModule.forRoot([]) // Añade esta línea si no estás usando AppRoutingModule
-  ],
+    RouterModule.forRoot([])
   providers: [],
   bootstrap: [AppComponent],
 })
